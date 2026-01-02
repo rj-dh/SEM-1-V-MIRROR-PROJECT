@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V-Mirror | Auth</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+  <canvas id="particleCanvas"></canvas>
+
+  <div class="login-wrapper">
+    <div class="info">
+      <h1>Welcome to <span>V-Mirror</span></h1>
+      <p>Experience fashion intelligently.</p>
+    </div>
+
+    <div class="login-card">
+      <h2 id="formTitle">Login</h2>
+
+      <form id="authForm">
+        <div class="input-group">
+          <input type="text" id="username" required />
+          <label>Username</label>
+        </div>
+
+        <div class="input-group password-group">
+          <input type="password" id="password" required />
+          <label>Password</label>
+          <span class="toggle-password" id="togglePassword">👁️</span>
+        </div>
+
+        <button class="login-btn" id="submitBtn">Login</button>
+      </form>
+
+      <p class="toggle-text">
+        <span id="toggleText">New user?</span>
+        <a href="#" id="toggleMode">Signup</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="background.js"></script>
+
+  <script>
+    let isLogin = true;
+
+    const formTitle = document.getElementById("formTitle");
+    const submitBtn = document.getElementById("submitBtn");
+    const toggleText = document.getElementById("toggleText");
+    const toggleMode = document.getElementById("toggleMode");
+
+    toggleMode.addEventListener("click", () => {
+      isLogin = !isLogin;
+      formTitle.innerText = isLogin ? "Login" : "Signup";
+      submitBtn.innerText = isLogin ? "Login" : "Signup";
+      toggleText.innerText = isLogin ? "New user?" : "Already have an account?";
+      toggleMode.innerText = isLogin ? "Signup" : "Login";
+    });
+
+    document.getElementById("authForm").addEventListener("submit", async e => {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const endpoint = isLogin ? "login" : "signup";
+
+      const res = await fetch(`http://localhost:3000/${endpoint}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+      });
+
+      const result = await res.json();
+
+      if (result.success) {
+        // ✅ STORE USERNAME
+        localStorage.setItem("vmirrorUser", username);
+        window.location.href = "../try-on-frontend/tryon.html";
+      } else {
+        alert("Invalid credentials");
+      }
+    });
+
+    document.getElementById("togglePassword").onclick = () => {
+      const pwd = document.getElementById("password");
+      pwd.type = pwd.type === "password" ? "text" : "password";
+    };
+  </script>
+</body>
+</html>

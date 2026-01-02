@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V-Mirror | Virtual Try-On</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <link rel="stylesheet" href="tryon.css" />
+</head>
+<body>
+
+  <!-- Background -->
+  <canvas id="starfield"></canvas>
+
+  <!-- HEADER -->
+  <header class="glass-header">
+    <div class="logo">V-Mirror</div>
+
+    <nav class="nav-menu">
+      <button class="nav-btn active">Home</button>
+      <button class="nav-btn">Try-On</button>
+      <button class="nav-btn">Collections</button>
+    </nav>
+
+    <!-- ACCOUNT -->
+    <div class="account-wrapper">
+      <button class="account-btn" id="accountBtn">
+        <i class="fa-regular fa-user"></i>
+      </button>
+      <span class="username" id="usernameDisplay"></span>
+
+      <div class="account-menu" id="accountMenu">
+        <div class="menu-user">
+          <i class="fa-solid fa-circle-user"></i>
+          <span id="menuUsername"></span>
+        </div>
+
+        <button class="menu-item" id="aboutBtn">
+          <i class="fa-solid fa-circle-info"></i>
+          About
+        </button>
+
+        <button class="menu-item logout" id="logoutBtn">
+          
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section
+    class="hero"
+    id="heroSection"
+    style="
+      background:
+        linear-gradient(rgba(5,10,25,0.6), rgba(5,10,25,0.85)),
+        url('background.png') center / cover no-repeat;
+    "
+  >
+    <h1>Welcome to <span>V-Mirror</span></h1>
+    <p>Upload your photo and experience virtual fashion.</p>
+    <button class="hero-btn" id="startTryOnBtn">Start Try-On</button>
+  </section>
+
+  <!-- TRY-ON SECTION (RESTORED ✅) -->
+  <section class="tryon-section fade-section" id="tryonSection">
+    <div class="mirror-box">
+      <div class="mirror-glow"></div>
+
+      <img id="previewImage" />
+      <img id="garmentOverlay" src="garment.png" />
+      <span class="placeholder-text">Upload your photo</span>
+    </div>
+
+    <div class="tryon-controls">
+      <label class="glass-btn primary">
+        <i class="fa-solid fa-upload"></i>
+        Upload Photo
+        <input type="file" accept="image/*" id="imageUpload" hidden />
+      </label>
+
+      <button class="glass-btn secondary" id="toggleGarment">
+        <i class="fa-solid fa-shirt"></i>
+        Toggle Garment
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="glass-footer">
+    <span>© 2025 V-Mirror</span>
+    <div class="footer-icons">
+      <i class="fa-brands fa-github"></i>
+      <i class="fa-brands fa-linkedin"></i>
+      <i class="fa-solid fa-envelope"></i>
+    </div>
+  </footer>
+
+  <script src="tryon.js"></script>
+</body>
+</html>

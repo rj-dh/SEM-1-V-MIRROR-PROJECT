@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | V-Mirror</title>
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Reuse existing styles -->
+  <link rel="stylesheet" href="tryon.css" />
+</head>
+<body>
+
+<!-- Background -->
+<canvas id="starfield"></canvas>
+
+<!-- HEADER (reused, unchanged design) -->
+<header class="glass-header">
+  <div class="logo">V-Mirror</div>
+
+  <nav class="nav-menu">
+    <button class="nav-btn" onclick="location.href='tryon.html'">Home</button>
+    <button class="nav-btn coming-soon">Collections</button>
+  </nav>
+
+  <div class="account-wrapper">
+    <button class="account-btn" id="accountBtn">
+      <i class="fa-regular fa-user"></i>
+    </button>
+    <span class="username" id="usernameDisplay"></span>
+
+    <div class="account-menu" id="accountMenu">
+      <div class="menu-user">
+        <i class="fa-solid fa-circle-user"></i>
+        <span id="menuUsername"></span>
+      </div>
+
+      <button class="menu-item logout" id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT HERO -->
+<section class="about-hero">
+  <h1>About <span>V-Mirror</span></h1>
+  <p>
+    Making online fashion shopping more confident, visual, and interactive.
+  </p>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="about-container">
+
+  <div class="about-card">
+    <h2>👕 What is V-Mirror?</h2>
+    <p>
+      V-Mirror is a virtual try-on web application designed to bridge the gap
+      between physical shopping and online fashion platforms.  
+      It allows users to upload their photo and visually preview how an outfit
+      would look on them before making a purchase decision.
+    </p>
+  </div>
+
+  <div class="about-card">
+    <h2>🛒 How V-Mirror Improves Online Shopping</h2>
+    <p>
+      One of the biggest challenges in online fashion shopping is the lack of
+      confidence while buying clothes without trying them on.
+      V-Mirror addresses this problem by providing a visual simulation of outfits,
+      helping users make informed decisions.
+    </p>
+    <ul>
+      <li>Increases buyer confidence before purchase</li>
+      <li>Reduces product returns and exchanges</li>
+      <li>Improves overall customer satisfaction</li>
+      <li>Creates an engaging and interactive shopping experience</li>
+    </ul>
+  </div>
+
+  <div class="about-card">
+    <h2>🚀 Upcoming Updates</h2>
+    <p>
+      V-Mirror is designed as a scalable platform.  
+      The following features are planned for future releases:
+    </p>
+    <ul>
+      <li>🧵 Outfit collections categorized by style and occasion</li>
+      <li>📸 Live camera-based virtual try-on</li>
+      <li>🤖 AI-powered garment fitting and recommendations</li>
+      <li>📱 Enhanced mobile and AR-based experiences</li>
+    </ul>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="glass-footer">
+  <span>© 2025 V-Mirror</span>
+</footer>
+
+<!-- Reuse existing JS (auth + dropdown works automatically) -->
+<!-- <script src="tryon.js"></script> -->
+<script src="about.js"></script>
+
+</body>
+</html>
